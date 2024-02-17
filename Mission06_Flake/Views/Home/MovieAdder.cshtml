@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Add a Movie";
+}
+
+@model MovieViewModel
+
+<h1>Add a Movie</h1>
+
+<form method="post">
+
+    <label asp-for="Category">Category</label>
+    <input asp-for="Category" />
+    <br />
+    <label asp-for="Title">Title</label>
+    <input asp-for="Title" />
+    <br />
+    <label asp-for="Year">Year</label>
+    <input asp-for="Year" />
+    <br />
+    <label asp-for="Director">Director</label>
+    <input asp-for="Director" />
+    <br />
+    <label asp-for="Rating">Rating</label>
+    <select asp-for="Rating">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+    </select>
+    <br />
+    <label asp-for="Edited">Edited</label>
+    <select asp-for="Edited">
+        <option value="true">yes</option>
+        <option value="false">no</option>
+    </select>
+    <br />
+    <label asp-for="LentTo">Lent To (optional)</label>
+    <input asp-for="LentTo" />
+    <br />
+    <label asp-for="Notes">Notes (optional)</label>
+    <input asp-for="Notes" maxlength="25" />
+    <br />
+    <button type="submit">Submit Movie</button>
+
+</form>
+
+<script>
+    function validateForm() {
+        var category = document.getElementById("Category").value;
+        var title = document.getElementById("Title").value;
+        var year = document.getElementById("Year").value;
+
+        if (category.trim() === "" || title.trim() === "" || year.trim() === "") {
+            alert("Please fill out all required fields.");
+            return false; // Prevent form submission
+        }
+        return true; // Submit the form
+    }
+</script>
