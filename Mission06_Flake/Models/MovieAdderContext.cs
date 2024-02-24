@@ -6,9 +6,9 @@ namespace Mission06_Flake.Models
     {
         public MovieAdderContext(DbContextOptions<MovieAdderContext> options) : base (options) //Constructor
         {
-
         }
 
         public DbSet<MovieViewModel> Movies { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
